@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="oupengmobile" content="landscape" />  
+	<title>ZOO-index</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/audiojs/audio.js"></script>
+    <script type="text/javascript" src="js/kinetic-v4.3.3.min.js"></script>
+    <script>
+    var audolist;
+    function $_(id){
+        return  document.getElementById(id);
+    }
+    function testAnim(x,flag) {
+        $('#zooPopup').removeClass().addClass(x+' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass();
+          if(flag){
+            $(this).hide();
+          }
+        });
+    }
+    function animAction(id,classStr){
+    	$('#'+id).removeClass().addClass(classStr).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    		$(this).removeClass();
+    		if(id == 'songbackBtn' || id == 'gamebackBtns'){
+    			$(this).addClass('back-r-movex');
+    		}
+    		if(id == 'gameBackground'){
+    			$(this).addClass('game-picx');
+    		}
+    	});
+    }
+    $(function(){
+       var closeBtn = $_('closeBtn');
+       var popWin = $_('zooPopup');
+       var songbackBtn = $_('songbackBtn');
+       var gamebackBtn = $_('gamebackBtns');
+
+       closeBtn.onclick = function(){
+        testAnim('bounceOut',true);
+        audolist[1].pause();
+       };
+       playBtn.onclick = function(){
+        showPlaySong();
+       };
+       songbackBtn.onclick = function(){
+        showKnowAnimal();
+        audolist[1].pause();
+       };
+       gameActionBtn.onclick = function(){
+        showPuzzleGame();
+       };
+       gamebackBtn.onclick = function(){
+        showGameKnowAnimal();
+       }
+       audiojs.events.ready(function() {
+        var players = document.getElementsByClassName("player");
+        audolist = audiojs.createAll(null,players);
+       });
+       //大按钮
+       $('#animalBtns a').click(function(){
+            var content = $(this).attr('id').trim();
+            showPopWin(content);
+        });
+        //按钮声音
+        $('.clipBtn').hover(function(){
+            $_('audioTip').play();
+        });
+    });
+    //弹出动物展示窗口
+    function showPopWin(animal){
+        $("body").data("animal", animal);
+        var animalCar =  $_('animalCar');
+        var animalText = $_('animalText');
+        var popWin = $_('zooPopup');
+        var song = $_('songAnimal');
+        var know = $_("knowAnimal");
+        var game = $_("puzzleGame");
+        know.style.display = 'block';
+        song.style.display = 'none';
+		game.style.display = 'none';
+        animalCar.src = 'images/'+ animal + '.gif';
+        animalText.src = 'images/text-'+ animal + '.png';
+        popWin.style.display = 'block';
+        testAnim('bounceIn',false);
+        $('#animalText').hover(function(event){
+        	if (audolist[0].mp3.indexOf(animal) === -1){
+	        	audolist[0].load('./res/spell/'+animal+'.mp3',function(){
+	        		audolist[0].play();
+	        	});
+        	}else{
+        		audolist[0].play();
+        	}
+        });
+        $('#playBtn').click(function(){
+            if (audolist[1].mp3.indexOf(animal) === -1){
+	        	audolist[1].load('./res/song/'+animal+'.mp3',function(){
+	        		audolist[1].play();
+	        	});
+        	}else{
+                audolist[1].skipTo(0);
+        		audolist[1].play();
+        	}
+        });
+        $('#pic').hover(function(){
+            if (audolist[2].mp3.indexOf(animal) === -1){
+                audolist[2].load('./res/introduce/'+animal+'.mp3',function(){
+                    audolist[2].play();
+                });
+            }else{
+                audolist[2].skipTo(0);
+                audolist[2].play();
+            }
+       });
+
+        $('#finishModalBody').hover(function(){
+            $_('ding_sound').play();
+        },function(){});
+    }
+
+    //显示儿歌页面
+    function showPlaySong(){
+         var animal = $("body").data("animal");
+         var song = $_('songAnimal');
+         var know = $_("knowAnimal");
+         var songWord = $_("songWord");
+         var songPic = $_("songPic");
+         songWord.src = 'images/songs/song-'+ animal + '.gif';
+         songPic.src = 'images/pics/'+ animal + '.gif';
+        //添加css3关键帧动画
+        animAction('songWord','songwordImg');
+        animAction('musicBtn','music-l-move');
+        animAction('gameBtn','game-r-move');
+        animAction('songbackBtn','back-r-move');
+        know.style.display = 'none';
+        song.style.display = 'block';
+         
+    }
+    //用于返回弹窗主窗口
+    function showKnowAnimal(){
+        var song = $_('songAnimal'),
+            know = $_("knowAnimal");
+        song.style.display = 'none';
+        know.style.display = 'block';
+    }
+    function showGameKnowAnimal(){
+    	var game = $_("puzzleGame"),
+            know = $_("knowAnimal");
+    	game.style.display = 'none';
+    	know.style.display = 'block';
+    }
+    //显示拼图动画
+    function showPuzzleGame(){
+    	var animal = $("body").data("animal"),
+            game = $_("puzzleGame"),
+            know = $_('knowAnimal'),
+            puzzle = $_("puzzleGamePic"),
+            modal = $_("finishModal");
+            percent = $_("game-percent");
+        modal.style.display = 'none';
+        percent.src = './images/percent/pro_bar_0.gif';
+    	animAction('gameBackground','game-pic');
+       	animAction('puzzleMusicBtn','music-l-move');
+        animAction('puzzleGameBtn','game-r-move');
+        animAction('gamebackBtns','back-r-move');
+    	know.style.display = 'none';
+    	game.style.display = 'block';
+        var path = 'images/game-pics/'+ animal + '.gif';
+        load_puzzle(path);
+    	//puzzleGamePic.src = 'images/game-pics/'+ animal + '.gif';
+    }   
+    </script>
+</head>
+<body>
+	<div id="animailSpell" style="z-index:101;display:none;"><audio src="./res/spell/bird.mp3" class="player"/></div>
+    <div id="animailSong" style="z-index:102;display:none;"><audio src="./res/song/bird.mp3" loop="true" class="player"/></div>
+    <div id="animailIntroduce" style="z-index:103;display:none;"><audio src="./res/introduce/bird.mp3" class="player"/></div>
+    <audio id="audioTip" preload="auto" autobuffer="autobuffer">
+        <source src="./res/Button13.mp3" type="audio/mp3" />
+        <source src="./res/Button13.ogg" type="audio/ogg" />
+    </audio>
+    <audio id="click_sound" preload="auto" autobuffer="autobuffer">
+        <source src="Sounds/click.mp3" type="audio/mp3" />
+        <source src="Sounds/click.ogg" type="audio/ogg" />
+    </audio>
+    <audio id="ding_sound" preload="auto" autobuffer="autobuffer">
+        <source src="Sounds/ding.mp3" type="audio/mp3" />
+        <source src="Sounds/ding.ogg" type="audio/ogg" />
+    </audio>
+	<div class="wrapper">
+		
+		<div class="cloud"></div>
+		<!--导航地图  开始-->
+		<div class="map">
+			<div class="door"></div>
+			<ul class="nav-btn" id="animalBtns">
+				<li><a href="javascript:void(0)" class="lion clipBtn" id="lion"><span>HELLO~</span></a></li>
+				<li><a href="javascript:void(0)" class="bird clipBtn" id="bird"><span>HELLO~</span></a></li>
+				<li><a href="javascript:void(0)" class="crocodile clipBtn" id="crocodile"><span>HELLO~</span></a></li>
+				<li><a href="javascript:void(0)" class="zebra clipBtn" id="zebra"><span>HELLO~</span></a></li>
+				<li><a href="javascript:void(0)" class="panda clipBtn" id="panda"><span>HELLO~</span></a></li>
+				<li><a href="javascript:void(0)" class="giraffe clipBtn" id="giraffe"><span>HELLO~</span></a></li>
+				<li><a href="javascript:void(0)" class="elephant clipBtn" id="elephant"><span>HELLO~</span></a></li>
+			</ul>
+		</div>
+		<div class="rainbow"></div>
+		<!--导航地图  结束-->
+		<div class="load"></div>
+	</div>
+    <script type="text/javascript" src="js/puzzle.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>预加载测试</title>
+	<script type="text/javascript" src="js/soundjs-0.6.1.min.js"></script>
+	<script type="text/javascript" src="js/preloadjs-0.6.0.min.js"></script>
+	<script>
+		var manifest = [];
+		var names = ['bird','crocodile','elephant','giraffe','lion','panda','zebra'];
+	    var introducePath = 'introduce';
+	    var songPath = 'song';
+	    var spellPath = 'spell';
+		var preload;
+
+		//定义相关JSON格式文件列表
+		function setupManifest() {
+		    for (var i = 0; i < names.length; i++) {
+	            manifest.push({src:'./res/'+introducePath+'/'+names[i]+'.mp3',id:introducePath+names[i]});
+	            manifest.push({src:'./res/'+songPath+'/'+names[i]+'.mp3',id:songPath+names[i]});
+	            manifest.push({src:'./res/'+spellPath+'/'+names[i]+'.mp3',id:spellPath+names[i]});
+        	}
+        	
+		}
+
+		//开始预加载
+		function startPreload() {
+		    preload = new createjs.LoadQueue(true);
+		    //注意加载音频文件需要调用如下代码行
+		    preload.installPlugin(createjs.Sound);         
+		    preload.on("fileload", handleFileLoad);
+		    preload.on("progress", handleFileProgress);
+		    preload.on("complete", loadComplete);
+		    preload.on("error", loadError);
+		    preload.loadManifest(manifest);
+		 
+		}
+
+		//处理单个文件加载
+		function handleFileLoad(event) {
+		    console.log("文件类型: " + event.item.type);
+		    if(event.item.id == "logo"){
+		        console.log("logo图片已成功加载");
+		    }
+		}
+		 
+		//处理加载错误：大家可以修改成错误的文件地址，可在控制台看到此方法调用
+		function loadError(evt) {
+		    console.log("加载出错！",evt.text);
+		}
+		 
+		//已加载完毕进度 
+		function handleFileProgress(event) {
+		    console.log("已加载 " + (preload.progress*100|0) + " %");
+		    //stage.update();
+		}
+
+		//全度资源加载完毕
+		function loadComplete(event) {
+		    console.log("已加载完毕全部资源");
+		    createjs.Sound.play("introducebird");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

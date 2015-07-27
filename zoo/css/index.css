@@ -1,0 +1,160 @@
+/*Begin*/
+
+/*RESET*/
+* { margin: 0; padding: 0; font: 16px/16px "微软雅黑"; color: #000; }
+ul, li { list-style: none; }
+img { outline: none; }
+.wrapper {overflow: hidden; width: 1024px; height: 768px; border: 1px solid #000;background-color:#69C0FE;}
+
+/*云朵*/
+.cloud { position: absolute; z-index: 2; top: -56%; left: -100%; width: 8392px; height: 768px; background: url(../images/cloud.png) no-repeat; -webkit-animation: cloudp 600s ease-out infinite; -o-animation: cloudp 600s ease-out infinite; animation: cloudp 600s ease-out infinite; }
+@-webkit-keyframes cloudp {
+	0% { top: 0%; left: 0%; }
+	.1% { top: -70%; left: 0%; }
+	.12% { top: -56%; left: 0%; }
+	100% { top: -56%; left: -100%; }
+}
+@-o-keyframes cloudp {
+	0% { top: 0%; left: 0%; }
+	.1% { top: -70%; left: 0%; }
+	.12% { top: -56%; left: 0%; }
+	100% { top: -56%; left: -100%; }
+}
+@-moz-keyframes cloudp {
+	0% { top: 0%; left: 0%; }
+	.1% { top: -70%; left: 0%; }
+	.12% { top: -56%; left: 0%; }
+	100% { top: -56%; left: -100%; }
+}
+@keyframes cloudp {
+	0% { top: 0%; left: 0%; }
+	.1% { top: -70%; left: 0%; }
+	.12% { top: -56%; left: 0%; }
+	100% { top: -56%; left: -100%; }
+}
+
+/*大门*/
+.door { position: absolute; z-index: 5; left: 442px; top: 552px; width: 145px; height: 114px; background: url(../images/nav-door.png) no-repeat; }
+
+/*彩虹*/
+.rainbow { position: absolute; z-index: 1; top: 80px; left: 260px; width: 0px; height: 238px; margin: 0px auto; background: url( ../images/nav-rainbow.png) no-repeat; -webkit-animation: rainbow 1s ease-in; -o-animation: rainbow 1s ease-in; animation: rainbow 1s ease-in; -webkit-animation-delay: .5s; -o-animation-delay: .5s; animation-delay: .5s; -webkit-animation-fill-mode: forwards; -o-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+@-webkit-keyframes rainbow {
+	0% { width: 0px; }
+	100% { width: 485px; }
+}
+@-o-keyframes rainbow {
+	0% { width: 0px; }
+	100% { width: 485px; }
+}
+@-moz-keyframes rainbow {
+	0% { width: 0px; }
+	100% { width: 485px; }
+}
+@keyframes rainbow {
+	0% { width: 0px; }
+	100% { width: 485px; }
+}
+
+/*地图背景*/
+.map { position: relative; z-index: 3; width: 1024px; height: 768px; background: url(../images/nav-map.gif) center top no-repeat; transform: scaleX(1) scaleY(1); -webkit-animation: mapbg .8s ease-in; -o-animation: mapbg .8s ease-in; animation: mapbg .8s ease-in; }
+@-webkit-keyframes mapbg {
+	0% { transform: scaleX(0) scaleY(1); width: 1124px; }
+	60% { transform: scaleX(1.1) scaleY(0.95); width: 1024px; }
+	80% { transform: scaleX(0.9) scaleY(1.06); width: 1024px; }
+	100% { transform: scaleX(1) scaleY(1); width: 1024px; }
+}
+@-o-keyframes mapbg {
+	0% { transform: scaleX(0) scaleY(1); width: 1124px; }
+	60% { transform: scaleX(1.1) scaleY(0.95); width: 1024px; }
+	80% { transform: scaleX(0.9) scaleY(1.06); width: 1024px; }
+	100% { transform: scaleX(1) scaleY(1); width: 1024px; }
+}
+@-moz-keyframes mapbg {
+	0% { transform: scaleX(0) scaleY(1); width: 1124px; }
+	60% { transform: scaleX(1.1) scaleY(0.95); width: 1024px; }
+	80% { transform: scaleX(0.9) scaleY(1.06); width: 1024px; }
+	100% { transform: scaleX(1) scaleY(1); width: 1024px; }
+}
+@keyframes mapbg {
+	0% { transform: scaleX(0) scaleY(1); width: 1124px; }
+	60% { transform: scaleX(1.1) scaleY(0.95); width: 1024px; }
+	80% { transform: scaleX(0.9) scaleY(1.06); width: 1024px; }
+	100% { transform: scaleX(1) scaleY(1); width: 1024px; }
+}
+.nav-btn a { position: absolute; z-index: 4; display: block; text-decoration: none; cursor: pointer; -webkit-transition: .1s ease-out; -o-transition: .1s ease-out; transition: .1s ease-out; -webkit-transform: scale(0); -ms-transform: scale(0); -o-transform: scale(0); transform: scale(0); -webkit-animation: navbtn .5s ease-out; -o-animation: navbtn .5s ease-out; animation: navbtn .5s ease-out; -webkit-animation-delay: .4s; -o-animation-delay: .4s; animation-delay: .4s; -webkit-animation-fill-mode: forwards; -o-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+@-webkit-keyframes navbtn {
+	0% { transform: scale(0); }
+	70% { transform: scale(1.1); }
+	90% { transform: scale(0.9); }
+	100% { transform: scale(1); }
+}
+@-o-keyframes navbtn {
+	0% { transform: scale(0); }
+	70% { transform: scale(1.1); }
+	90% { transform: scale(0.9); }
+	100% { transform: scale(1); }
+}
+@-moz-keyframes navbtn {
+	0% { transform: scale(0); }
+	70% { transform: scale(1.1); }
+	90% { transform: scale(0.9); }
+	100% { transform: scale(1); }
+}
+@keyframes navbtn {
+	0% { transform: scale(0); }
+	70% { transform: scale(1.1); }
+	90% { transform: scale(0.9); }
+	100% { transform: scale(1); }
+}
+.nav-btn a:hover { 
+	-webkit-transition: scale(0.9);
+	-o-transition: scale(0.9);
+	transition: scale(0.9);
+}
+.nav-btn a:after { opacity: 0; z-index: 3; 
+	-webkit-transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	transition: all .2s ease-in;
+}
+.nav-btn a:hover:after { opacity: 1; }
+.nav-btn li a span { position: absolute; display: block; opacity: 0; width: 80px; text-align: center; padding: 10px; background: #fff; border-radius: 5px; box-shadow: 0px 1px 3px #2d7f1f;
+ -webkit-transition: all .5s;
+ -o-transition: all .5s;
+ transition: all .5s;
+}
+.nav-btn li a span:after { display: block; content: ""; position: absolute; top: 100%; left: 36px; width: 0px; height: 0px; border-top: 10px solid #fff; border-left: 10px solid transparent; border-right: 10px solid transparent; }
+.nav-btn .lion { top: 226px; left: 219px; width: 99px; height: 95px; background: url(../images/nav/lion.gif) no-repeat; }
+.nav-btn .lion span { top: -35%; }
+.nav-btn .lion:hover { background: url(../images/nav/lion_do.png) no-repeat; }
+.nav-btn .lion:hover span { top: -45%; opacity: 1; }
+
+.nav-btn .bird { top: 182px; left: 542px; width: 47px; height: 45px; background: url(../images/nav/bird.gif) no-repeat; }
+.nav-btn .bird span { top: -85%; left: -50%; }
+.nav-btn .bird:hover { background: url(../images/nav/bird_do.png) no-repeat; }
+.nav-btn .bird:hover span { top: -95%; opacity: 1; }
+
+.nav-btn .crocodile { top: 248px; left: 822px; width: 69px; height: 66px; background: url(../images/nav/crocodile.gif) no-repeat; }
+.nav-btn .crocodile span { top: -55%; left: -12%; }
+.nav-btn .crocodile:hover { background: url(../images/nav/crocodile_do.png) no-repeat; }
+.nav-btn .crocodile:hover span { top: -65%; opacity: 1; }
+
+.nav-btn .zebra { top: 295px; left: 521px; width: 89px; height: 85px; background: url(../images/nav/zebra.gif) no-repeat; }
+.nav-btn .zebra span { top: -45%; }
+.nav-btn .zebra:hover { background: url(../images/nav/zebra_do.png) no-repeat; }
+.nav-btn .zebra:hover span { top: -55%; opacity: 1; }
+
+.nav-btn .panda { top: 382px; left: 630px; width: 62px; height: 59px; background: url(../images/nav/panda.gif) no-repeat; }
+.nav-btn .panda span { top: -60%; left: -20%; }
+.nav-btn .panda:hover { background: url(../images/nav/panda_do.png) no-repeat; }
+.nav-btn .panda:hover span { top: -70%; opacity: 1; }
+
+.nav-btn .giraffe { top: 530px; left: 690px; width: 82px; height: 79px; background: url(../images/nav/giraffe.gif) no-repeat; }
+.nav-btn .giraffe span { top: -45%; left: -5%; }
+.nav-btn .giraffe:hover { background: url(../images/nav/giraffe_do.png) no-repeat; }
+.nav-btn .giraffe:hover span { top: -55%; opacity: 1; }
+
+.nav-btn .elephant { top: 504px; left: 160px; width: 107px; height: 102px; background: url(../images/nav/elephant.gif) no-repeat; }
+.nav-btn .elephant span { top: -35%; left: 10%; }
+.nav-btn .elephant:hover { background: url(../images/nav/elephant_do.png) no-repeat; }
+.nav-btn .elephant:hover span { top: -45%; opacity: 1; }
+

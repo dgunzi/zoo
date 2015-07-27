@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>puzzle demo</title>
+	<style>
+		canvas {border: 0px;margin:0;padding:0;};
+		audio{display: none;}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/kinetic-v4.3.3.js"></script>
+</head>
+<body>
+	<audio id="click_sound" preload="auto" autobuffer="autobuffer">
+		<source src="Sounds/click.mp3" type="audio/mp3" />
+		<source src="Sounds/click.mp3" type="audio/mpeg" />
+		<source src="Sounds/click.ogg" type="audio/ogg" />
+	</audio>
+	<audio id="ding_sound" preload="auto" autobuffer="autobuffer">
+		<source src="Sounds/ding.mp3" type="audio/mp3" />
+		<source src="Sounds/ding.mp3" type="audio/mpeg" />
+		<source src="Sounds/ding.ogg" type="audio/ogg" />
+	</audio>
+	<div id="container" style="height:360px;width:550px;">
+
+	</div>
+	<div id="dummy" style="display:none;">
+		<img id="g_imageObj" alt="" src="about:blank"/>
+	</div>
+	<script type="text/javascript" src="js/puzzle2.js"></script>
+	<script>
+	$(function() {
+		var path = './images/game-pics/bird.gif';
+		load_puzzle(path);
+	});
+	</script>
+</body>
+</html>

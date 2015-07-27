@@ -1,0 +1,609 @@
+/*Begin*/
+
+/*RESET*/
+* { margin: 0; padding: 0; font: 14px/14px "微软雅黑"; color: #000;}
+ul, li { list-style: none; }
+img { outline: none; }
+.wrapper { position: relative; overflow: hidden; width: 1024px; height: 768px; border: 1px solid #000; background-color:#69C0FE;}
+body{
+	-moz-user-select: none; /*火狐*/
+	-webkit-user-select: none;  /*webkit浏览器*/
+	-ms-user-select: none;   /*IE10*/
+	-khtml-user-select: none; /*早期浏览器*/
+	user-select: none;
+}
+
+
+/*进度条 开始*/
+.progress { position: relative; z-index: 6; width: 502px; height: 45px; margin: 18% auto; background: url( ../images/begin/loading_bg.png) center bottom no-repeat; }
+.progress-dis{
+	-webkit-animation: pzoom .5s ease-out; 
+	-moz-animation: pzoom .5s ease-out; 
+	-ms-animation: pzoom .5s ease-out; 
+	animation: pzoom .5s ease-out; 
+	-webkit-animation-fill-mode: forwards; 
+	-moz-animation-fill-mode: forwards; 
+	-ms-animation-fill-mode: forwards; 
+	animation-fill-mode: forwards; 
+}
+@-webkit-keyframes pzoom {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@-moz-keyframes pzoom {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@-o-keyframes pzoom {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@keyframes pzoom {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+.progress-bar { position: absolute; z-index: -1; left: 4px; top: 0px; width: 494px; height: 40px; background: url( ../images/begin/loading_con.gif) no-repeat; 
+	-webkit-transition: 0.4s linear;
+	-moz-transition: 0.4s linear;
+	-o-transition: 0.4s linear;
+	transition: 0.4s linear;
+	-webkit-transition-property: width;
+	-moz-transition-property: width;
+	-o-transition-property: width;
+	transition-property: width;
+	width:0%;
+ }
+
+
+/*进度条 结束*/
+
+/*开始按钮 开始*/
+.start { position: absolute; z-index: -2; opacity: 0; top: 15%; left: 43%; width: 172px; height: 172px; overflow: hidden; cursor: pointer; background: url(../images/begin/start_btn.gif) center top no-repeat;
+ -webkit-transform: scale(1);
+ -moz-transform: scale(1); 
+ -ms-transform: scale(1); 
+ transform: scale(1);
+  -webkit-transition: transform .1s ease-out; 
+  -moz-transition: transform .1s ease-out; 
+  -ms-transition: transform .1s ease-out; 
+  transition: transform .1s ease-out; 
+  
+  
+}
+.start_show{
+  -webkit-animation: szoom .8s ease-out; 
+  -moz-animation: szoom .8s ease-out; 
+  -ms-animation: szoom .8s ease-out; 
+  animation: szoom .8s ease-out; 
+  -webkit-animation-delay: 0.3s; 
+  -moz-animation-delay: 0.3s;
+  -ms-animation-delay: 0.3s;
+  animation-delay: 0.3s; 
+  -webkit-animation-fill-mode: forwards; 
+  -moz-animation-fill-mode: forwards; 
+  -ms-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; 
+}
+@-webkit-keyframes szoom {
+	0% { z-index: -2; opacity: 0; }
+	100% { z-index: 5; opacity: 1; }
+}
+@-moz-keyframes szoom {
+	0% { z-index: -2; opacity: 0; }
+	100% { z-index: 5; opacity: 1; }
+}
+@-o-keyframes szoom {
+	0% { z-index: -2; opacity: 0; }
+	100% { z-index: 5; opacity: 1; }
+}
+@keyframes szoom {
+	0% { z-index: -2; opacity: 0; }
+	100% { z-index: 5; opacity: 1; }
+}
+.start:hover { background: url(../images/begin/start_btn.png) center bottom no-repeat;
+	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9); 
+	-ms-transform: scale(0.9); 
+	transform: scale(0.9);
+}
+
+/*开始按钮 结束*/
+/*小汽车*/
+.car { position: absolute; z-index: 4; top: 305px; left: -30%; width: 590px; height: 440px; background: url(../images/begin/car.gif) no-repeat; 
+	-webkit-transition: 1s linear;
+	-moz-transition: 1s linear;
+	-o-transition: 1s linear;
+	transition: 1s linear;
+	-webkit-transition-property: left;
+	-moz-transition-property: left;
+	-o-transition-property: left;
+	transition-property: left;
+}
+
+/*云朵*/
+.cloud { position: absolute; z-index: 1; top: -56%; left: -100%; width: 8392px; height: 768px; background: url(../images/cloud.png) no-repeat; }
+.cloudloading{-webkit-animation: cloud 600s infinite; -moz-animation: cloud 600s infinite; -ms-animation: cloud 600s infinite; animation: cloud 600s infinite; }
+@-webkit-keyframes cloud {
+	0% { left: 0%; }
+	100% { left: -100%; }
+}
+@-moz-keyframes cloud {
+	0% { left: 0%; }
+	100% { left: -100%; }
+}
+@-o-keyframes cloud {
+	0% { left: 0%; }
+	100% { left: -100%; }
+}
+@keyframes cloud {
+	0% { left: 0%; }
+	100% { left: -100%; }
+}
+.cloudplaying{
+	 -webkit-animation: cloudp 600s ease-out infinite; -o-animation: cloudp 600s ease-out infinite; animation: cloudp 600s ease-out infinite;
+}
+@-webkit-keyframes cloudp {
+	0% { top: -56%; left: 0%; }
+	.1% { top: -60%; left: 0%; }
+	.12% { top: -65%; left: 0%; }
+	100% { top: -75%; left: -100%; }
+}
+@-o-keyframes cloudp {
+	0% { top: -56%; left: 0%; }
+	.1% { top: -60%; left: 0%; }
+	.12% { top: -65%; left: 0%; }
+	100% { top: -75%; left: -100%; }
+}
+@-moz-keyframes cloudp {
+	0% { top: -56%; left: 0%; }
+	.1% { top: -60%; left: 0%; }
+	.12% { top: -65%; left: 0%; }
+	100% { top: -75%; left: -100%; }
+}
+@keyframes cloudp {
+	0% { top: -56%; left: 0%; }
+	.1% { top: -60%; left: 0%; }
+	.12% { top: -65%; left: 0%; }
+	100% { top: -75%; left: -100%; }
+}
+
+/*陆地*/
+.land { position: absolute; z-index: 2; bottom: 0px; left: 0px; width: 1024px; height: 768px; background: url(../images/begin/land.gif) no-repeat; }
+.landisappear{-webkit-animation: landisappear .8s ease-out;-o-animation: landisappear .8s ease-out;animation: landisappear .8s ease-out;}
+@-webkit-keyframes landisappear {
+	0%{ bottom:0px;}
+	80%{ bottom:-200px;}
+	100%{ bottom:-248px;}
+}
+@-o-keyframes landisappear{
+	0%{ bottom:0px;}
+	80%{ bottom:-200px;}
+	100%{ bottom:-248px;}
+}
+@-moz-keyframes landisappear {
+	0%{ bottom:0px;}
+	80%{ bottom:-200px;}
+	100%{ bottom:-248px;}
+}
+@keyframes landisappear{
+	0%{ bottom:0px;}
+	80%{ bottom:-200px;}
+	100%{ bottom:-248px;}
+}
+
+/*大门*/
+.door { position: absolute; z-index: 5; left: 442px; top: 552px; width: 145px; height: 114px; background: url(../images/nav-door.png) no-repeat; }
+
+/*彩虹*/
+.rainbow { position: absolute; z-index: 1; top: 80px; left: 260px; width: 0px; height: 238px; margin: 0px auto; background: url( ../images/nav-rainbow.png) no-repeat; -webkit-animation: rainbow 1s ease-in; -o-animation: rainbow 1s ease-in; animation: rainbow 1s ease-in; -webkit-animation-delay: .5s; -o-animation-delay: .5s; animation-delay: .5s; -webkit-animation-fill-mode: forwards; -o-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+@-webkit-keyframes rainbow {
+	0% { width: 0px; }
+	100% { width: 485px; }
+}
+@-o-keyframes rainbow {
+	0% { width: 0px; }
+	100% { width: 485px; }
+}
+@-moz-keyframes rainbow {
+	0% { width: 0px; }
+	100% { width: 485px; }
+}
+@keyframes rainbow {
+	0% { width: 0px; }
+	100% { width: 485px; }
+}
+/*地图背景*/
+.map { position: absolute; z-index: 3; top:30px; width: 1024px; height: 768px; background: url(../images/nav-map.gif) center top no-repeat; transform: scaleX(1) scaleY(1); -webkit-animation: mapbg .8s ease-in; -o-animation: mapbg .8s ease-in; animation: mapbg .8s ease-in; }
+@-webkit-keyframes mapbg {
+	0% { transform: scaleX(0) scaleY(1); width: 1124px; }
+	60% { transform: scaleX(1.1) scaleY(0.95); width: 1024px; }
+	80% { transform: scaleX(0.9) scaleY(1.06); width: 1024px; }
+	100% { transform: scaleX(1) scaleY(1); width: 1024px; }
+}
+@-o-keyframes mapbg {
+	0% { transform: scaleX(0) scaleY(1); width: 1124px; }
+	60% { transform: scaleX(1.1) scaleY(0.95); width: 1024px; }
+	80% { transform: scaleX(0.9) scaleY(1.06); width: 1024px; }
+	100% { transform: scaleX(1) scaleY(1); width: 1024px; }
+}
+@-moz-keyframes mapbg {
+	0% { transform: scaleX(0) scaleY(1); width: 1124px; }
+	60% { transform: scaleX(1.1) scaleY(0.95); width: 1024px; }
+	80% { transform: scaleX(0.9) scaleY(1.06); width: 1024px; }
+	100% { transform: scaleX(1) scaleY(1); width: 1024px; }
+}
+@keyframes mapbg {
+	0% { transform: scaleX(0) scaleY(1); width: 1124px; }
+	60% { transform: scaleX(1.1) scaleY(0.95); width: 1024px; }
+	80% { transform: scaleX(0.9) scaleY(1.06); width: 1024px; }
+	100% { transform: scaleX(1) scaleY(1); width: 1024px; }
+}
+.nav-btn a { position: absolute; z-index: 4; display: block; text-decoration: none; cursor: pointer; -webkit-transition: .1s ease-out; -o-transition: .1s ease-out; transition: .1s ease-out; -webkit-transform: scale(0); -ms-transform: scale(0); -o-transform: scale(0); transform: scale(0); -webkit-animation: navbtn .5s ease-out; -o-animation: navbtn .5s ease-out; animation: navbtn .5s ease-out; -webkit-animation-delay: .4s; -o-animation-delay: .4s; animation-delay: .4s; -webkit-animation-fill-mode: forwards; -o-animation-fill-mode: forwards; animation-fill-mode: forwards; }
+@-webkit-keyframes navbtn {
+	0% { transform: scale(0); }
+	70% { transform: scale(1.1); }
+	90% { transform: scale(0.9); }
+	100% { transform: scale(1); }
+}
+@-o-keyframes navbtn {
+	0% { transform: scale(0); }
+	70% { transform: scale(1.1); }
+	90% { transform: scale(0.9); }
+	100% { transform: scale(1); }
+}
+@-moz-keyframes navbtn {
+	0% { transform: scale(0); }
+	70% { transform: scale(1.1); }
+	90% { transform: scale(0.9); }
+	100% { transform: scale(1); }
+}
+@keyframes navbtn {
+	0% { transform: scale(0); }
+	70% { transform: scale(1.1); }
+	90% { transform: scale(0.9); }
+	100% { transform: scale(1); }
+}
+.nav-btn a:hover { 
+	-webkit-transition: scale(0.9);
+	-o-transition: scale(0.9);
+	transition: scale(0.9);
+}
+.nav-btn a:after { opacity: 0; z-index: 3; 
+	-webkit-transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	transition: all .2s ease-in;
+}
+.nav-btn a:hover:after { opacity: 1; }
+.nav-btn li a span { position: absolute; display: block; opacity: 0; width: 80px; text-align: center; padding: 10px; background: #fff; border-radius: 5px; box-shadow: 0px 1px 3px #2d7f1f;
+ -webkit-transition: all .5s;
+ -o-transition: all .5s;
+ transition: all .5s;
+}
+.nav-btn li a span:after { display: block; content: ""; position: absolute; top: 100%; left: 36px; width: 0px; height: 0px; border-top: 10px solid #fff; border-left: 10px solid transparent; border-right: 10px solid transparent; }
+.nav-btn .lion { top: 226px; left: 219px; width: 99px; height: 95px; background: url(../images/nav/lion.gif) no-repeat; }
+.nav-btn .lion span { top: -35%; }
+.nav-btn .lion:hover { background: url(../images/nav/lion_do.png) no-repeat; }
+.nav-btn .lion:hover span { top: -45%; opacity: 1; }
+
+.nav-btn .bird { top: 182px; left: 542px; width: 47px; height: 45px; background: url(../images/nav/bird.gif) no-repeat; }
+.nav-btn .bird span { top: -85%; left: -50%; }
+.nav-btn .bird:hover { background: url(../images/nav/bird_do.png) no-repeat; }
+.nav-btn .bird:hover span { top: -95%; opacity: 1; }
+
+.nav-btn .crocodile { top: 248px; left: 822px; width: 69px; height: 66px; background: url(../images/nav/crocodile.gif) no-repeat; }
+.nav-btn .crocodile span { top: -55%; left: -12%; }
+.nav-btn .crocodile:hover { background: url(../images/nav/crocodile_do.png) no-repeat; }
+.nav-btn .crocodile:hover span { top: -65%; opacity: 1; }
+
+.nav-btn .zebra { top: 295px; left: 521px; width: 89px; height: 85px; background: url(../images/nav/zebra.gif) no-repeat; }
+.nav-btn .zebra span { top: -45%; }
+.nav-btn .zebra:hover { background: url(../images/nav/zebra_do.png) no-repeat; }
+.nav-btn .zebra:hover span { top: -55%; opacity: 1; }
+
+.nav-btn .panda { top: 382px; left: 630px; width: 62px; height: 59px; background: url(../images/nav/panda.gif) no-repeat; }
+.nav-btn .panda span { top: -60%; left: -20%; }
+.nav-btn .panda:hover { background: url(../images/nav/panda_do.png) no-repeat; }
+.nav-btn .panda:hover span { top: -70%; opacity: 1; }
+
+.nav-btn .giraffe { top: 530px; left: 690px; width: 82px; height: 79px; background: url(../images/nav/giraffe.gif) no-repeat; }
+.nav-btn .giraffe span { top: -45%; left: -5%; }
+.nav-btn .giraffe:hover { background: url(../images/nav/giraffe_do.png) no-repeat; }
+.nav-btn .giraffe:hover span { top: -55%; opacity: 1; }
+
+.nav-btn .elephant { top: 504px; left: 160px; width: 107px; height: 102px; background: url(../images/nav/elephant.gif) no-repeat; }
+.nav-btn .elephant span { top: -35%; left: 10%; }
+.nav-btn .elephant:hover { background: url(../images/nav/elephant_do.png) no-repeat; }
+.nav-btn .elephant:hover span { top: -45%; opacity: 1; }
+
+/*弹出*/
+#zooPopup{ position:absolute; z-index: 10; top: 0px; left: 0px; width: 1024px; height: 768px;background: url(../images/pop/popup_bg.png) no-repeat 10px 120px; 
+	-webkit-background-size:98%;
+	-o-background-size:98%;
+	background-size:98%;
+}
+/*关闭按钮*/
+.control-btns{ position:absolute; z-index:11; width: 1024px; height: 768px;}
+.close{ position:absolute; z-index:11; top: 95px; right: 65px; width: 67px; height: 65px; background: url(../images/close.png) no-repeat; }
+.close:hover{background: url(../images/close_do.png) no-repeat; }
+
+/*左-右翻页按钮*/
+.leftAnimals { width: 240px; height: 305px; background: url('../images/pop/leftAnimals.png'); position: absolute; top: 355px;left:0px;}
+.lwag { animation: lwag steps(7) 0.7s infinite; }
+@keyframes lwag {
+	from { background-position: 240px 0px; }
+	to { background-position: -1440px 0px; }
+}
+.rightAnimals { width: 195px; height: 236px; background: url('../images/pop/rightAnimals.png');position: absolute;top: 410px;right:28px;}
+.rwag { animation: rwag steps(7) 0.7s infinite; }
+@keyframes rwag {
+	from { background-position: 195px 0px; }
+	to { background-position: -1170px 0px; }
+}
+
+/*认知内容 开始*/
+.card-con{ width: 820px; height: 420px; margin: 130px 110px;}
+
+.pic{ float: left; position: relative ; z-index: 13; width: 370px; height:400px; padding-left: 40px; padding-top: 35px;}
+.pic img{cursor:pointer;}
+
+
+.control{ float: left; width: 20px;}
+/*胶布、边框装饰*/
+.card-mark{ position: absolute; z-index: 12; top:-34px; left:-28px; width: 220px; height: 232px; background: url(../images/card-mark.png) no-repeat;}
+/*拼图游戏的图*/
+.game-pic{  position: absolute; z-index: 12; top: 150px; left:150px; width: 550px; height: 360px; padding:2px 5px; border-radius: 20px; border: 8px dashed #34322e; opacity: 1; 
+	-webkit-transition: scale(0);
+	-o-transition: scale(0);
+	transition: scale(0);
+	-webkit-animation: gamepic .5s ease-out; animation-fill-mode: forwards;;
+	-o-animation: gamepic .5s ease-out; animation-fill-mode: forwards;;
+	animation: gamepic .5s ease-out; animation-fill-mode: forwards;;
+}
+@-webkit-keyframes gamepic {
+	0%{transform: scale(0);}
+	10%{transform: scale(0.2);}
+		80%{transform: scale(1.1);}
+		90%{transform: scale(0.9);}
+		100%{transform: scale(1); }
+}
+@-o-keyframes gamepic {
+		0%{transform: scale(0);}
+		10%{transform: scale(0.2);}
+		80%{transform: scale(1.1);}
+		90%{transform: scale(0.9);}
+		100%{transform: scale(1); }
+}
+@-moz-keyframes gamepic {
+	0%{transform: scale(0);}
+		10%{transform: scale(0.2);}
+		80%{transform: scale(1.1);}
+		90%{transform: scale(0.9);}
+		100%{transform: scale(1); }
+}
+@keyframes gamepic {
+	0%{transform: scale(0);}
+		10%{transform: scale(0.2);}
+		80%{transform: scale(1.1);}
+		90%{transform: scale(0.9);}
+		100%{transform: scale(1); }
+}
+.game-pic img,.game-picx img{ }
+.game-picx{ position: absolute; z-index: 12; top: 150px; left:150px; width: 550px; height: 360px; padding:2px 5px; border-radius: 20px; border: 8px dashed #34322e; opacity: 0.5; 
+	-webkit-transition: scale(1);
+	-o-transition: scale(1);
+	transition: scale(1);
+}
+/*文字*/
+.word{ position: absolute;background-position: right bottom ; z-index: 12; margin-top: 50px; 
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	-o-transform: scale(0.9);
+	transform: scale(0.9);
+	-webkit-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+.word:hover{transform: scale(0.8); background: url(../images/lound.gif) right center no-repeat;}
+/*儿歌歌词*/
+.songword{ position: absolute; z-index: 12; width: 330px; height: 235px; background: url(../images/lound.gif) right center no-repeat;  margin-top: 35px; margin-left:50px; }
+.songwordImg { height: 235px; 
+	-webkit-transform: scaleY(1);
+	-ms-transform: scaleY(1);
+	-o-transform: scaleY(1);
+	transform: scaleY(1);
+	-webkit-transition: all .3s ease-out;
+	 -o-transition: all .3s ease-out;
+	 transition: all .3s ease-out; 
+	-webkit-animation: songword .5s ease-out;
+	-o-animation: songword .5s ease-out;
+	animation: songword .5s ease-out;
+}	
+	@-webkit-keyframes songword {
+		0%{transform: scaleY(0);}
+		60%{transform: scaleY(1.1);}
+		80%{transform: scaleY(0.9);}
+		100%{transform: scaleY(1);}
+	}
+	@-o-keyframes songword {
+		0%{transform: scaleY(0);}
+		60%{transform: scaleY(1.1);}
+		80%{transform: scaleY(0.9);}
+		100%{transform: scaleY(1);}
+	}
+	@-moz-keyframes songword {
+		0%{transform: scaleY(0);}
+		60%{transform: scaleY(1.1);}
+		80%{transform: scaleY(0.9);}
+		100%{transform: scaleY(1);}
+	}
+	@keyframes songword {
+		0%{transform: scaleY(0);}
+		60%{transform: scaleY(1.1);}
+		80%{transform: scaleY(0.9);}
+		100%{transform: scaleY(1);}
+	}
+/*游戏拼图右侧的容器*/
+/*奖牌*/
+.modal{ cursor: pointer; position: absolute; z-index:13; top:150px;  left:150px; width: 578px; height: 380px; border-radius: 15px;  background:rgba(0,0,0,0.6) ;}
+.modalbody{ position: absolute; z-index:14;  top:0px;  left:145px; width: 300px; height: 300px; 
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all .5s ease-out;
+	-o-transition: all .5s ease-out;
+	transition: all .5s ease-out;
+	background: url(../images/model.gif) no-repeat ;
+}
+.modalbody:hover{ top:12px; 
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+/*游戏进度条*/
+.game-program{ position: absolute; z-index:13;top: 160px; right: 180px; width: 50px; height: 245px; background: url(../images/game-p-bg.png) no-repeat; overflow: hidden;}
+/*操作按钮集合*/
+.gbtns{ position: absolute; z-index: 13; display:block; margin-top: 26%; } 
+.gbtns li{ float: left; margin-left: 45px;}
+.gbtns li a{ position: absolute; display: block; width: 130px; height: 131px; 
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all .1s ease-out;
+	 -o-transition: all .1s ease-out;
+	 transition: all .1s ease-out;
+}
+.gbtns li a:hover{
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	-o-transform: scale(0.9);
+	transform: scale(0.9);
+}
+.music{ background: url(../images/music.png) no-repeat ; cursor: pointer;}
+.music:hover{ background: url(../images/music_do.png) no-repeat ; }
+.game{ left: 215px; background: url(../images/game.png) no-repeat ; cursor: pointer;}
+.game:hover{ background: url(../images/game_do.png) no-repeat ;}
+.pause{ background: url(../images/pause.png) no-repeat ; cursor: pointer;}
+.pause:hover{ background: url(../images/pause_do.png) no-repeat ; }
+.back{ left: 215px; background: url(../images/back.png) no-repeat ; cursor: pointer;}
+.back:hover{ background: url(../images/back_do.png) no-repeat ;}
+/*随着页面跳转的操作按钮动画*/
+.music-l-move{ position: absolute; top: 0px; left: 45px; width: 130px; height: 131px;background: url(../images/music.png) no-repeat;
+	-webkit-transform: scale(1) rotate(0deg);
+	-ms-transform: scale(1) rotate(0deg);
+	-o-transform: scale(1) rotate(0deg);
+	transform: scale(1) rotate(0deg);
+	-webkit-animation: btnslmove .8s ease-out;
+	-o-animation: btnslmove .8s ease-out;
+	animation: btnslmove .8s ease-out;
+	-webkit-animation-delay: .2s;
+	-o-animation-delay: .2s;
+	animation-delay: .2s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+	@-webkit-keyframes btnslmove {
+		0%{ left: 45px; top: 0px; transform: scale(1) rotate(0deg); opacity: 1;}
+		30%{ left: 35px;  top: -5px;transform: scale(1.1) rotate(-10deg); opacity: 1;}
+		100%{ left: 230px; top: 30px; transform: scale(0) rotate(180deg); opacity: 0;}
+	}
+	@-o-keyframes btnslmove {
+		0%{ left: 45px; top: 0px; transform: scale(1) rotate(0deg); opacity: 1;}
+		30%{ left: 35px;  top: -5px;transform: scale(1.1) rotate(-10deg); opacity: 1;}
+		100%{ left: 230px; top: 30px; transform: scale(0) rotate(180deg); opacity: 0;}
+	}
+	@-moz-keyframes btnslmove {
+		0%{ left: 45px; top: 0px; transform: scale(1) rotate(0deg); opacity: 1;}
+		30%{ left: 35px;  top: -5px;transform: scale(1.1) rotate(-10deg); opacity: 1;}
+		100%{ left: 230px; top: 30px; transform: scale(0) rotate(180deg); opacity: 0;}
+	}
+	@keyframes btnslmove{
+		0%{ left: 45px; top: 0px; transform: scale(1) rotate(0deg); opacity: 1;}
+		30%{ left: 35px;  top: -5px;transform: scale(1.1) rotate(-10deg); opacity: 1;}
+		100%{ left: 230px; top: 30px; transform: scale(0) rotate(180deg); opacity: 0;}
+	}
+.game-r-move{ z-index: 14; position: absolute; top: 0px; left: 215px; width: 130px; height: 131px;background: url(../images/game.png) no-repeat;
+	-webkit-transform:  scale(1) rotate(0deg);
+	-ms-transform:  scale(1) rotate(0deg);
+	-o-transform:  scale(1) rotate(0deg);
+	transform:  scale(1) rotate(0deg);
+	-webkit-animation: gamermove .5s ease-out;
+	-o-animation: gamermove .5s ease-out;
+	animation: gamermove .5s ease-out;
+	-webkit-animation-delay: .2s;
+	-o-animation-delay: .2s;
+	animation-delay: .2s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+	@-webkit-keyframes gamermove {
+		0%{ top: 0px; left: 215px;transform: scale(1) rotate(0deg);}
+		30%{ top: -5px; left: 230px;transform: scale(1.1) rotate(-20deg);}
+		100%{ top: 30px; left: 230px;transform: scale(0) rotate(180deg);} 
+	}
+	@-o-keyframes gamermove {
+		0%{ top: 0px; left: 215px;transform: scale(1) rotate(0deg);}
+		30%{ top: -5px; left: 230px;transform: scale(1.1) rotate(-20deg);}
+		100%{ top: 30px; left: 230px;transform: scale(0) rotate(180deg);} 
+	}
+	@-moz-keyframes gamermove {
+		0%{ top: 0px; left: 215px;transform: scale(1) rotate(0deg);}
+		30%{ top: -5px; left: 230px;transform: scale(1.1) rotate(-20deg);}
+		100%{ top: 30px; left: 230px;transform: scale(0) rotate(180deg);} 
+	}
+	@keyframes gamermove{
+		0%{ top: 0px; left: 215px;transform: scale(1) rotate(0deg);}
+		30%{ top: -5px; left: 230px;transform: scale(1.1) rotate(-20deg);}
+		100%{ top: 30px; left: 230px;transform: scale(0) rotate(180deg);} 
+	}
+.back-r-move{ position: absolute; opacity: 0; top:30px; left: 230px; width: 130px; height: 131px; background: url(../images/back.png) no-repeat; 
+	-webkit-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+	-webkit-transform: scale(0);
+	 -ms-transform: scale(0);
+	 -o-transform: scale(0);
+	 transform: scale(0); 
+	-webkit-animation: btnslmove .8s ease-out;
+	-o-animation: btnslmove .8s ease-out;
+	animation: btnslmove .8s ease-out;
+	-webkit-animation-delay: .2s;
+	-o-animation-delay: .2s;
+	animation-delay: .2s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes btnsrmove {
+	0%{ top: 0px;left: 215px;opacity: 0; transform: scale(0);}
+		100%{ top: 30px;left: 230px;opacity: 1; transform: scale(1);}
+}
+@-o-keyframes btnsrmove {
+	0%{ top: 0px;left: 215px;opacity: 0; transform: scale(0);}
+		100%{ top: 30px;left: 230px;opacity: 1; transform: scale(1);}
+}
+@-moz-keyframes btnsrmove {
+	0%{ top: 0px;left: 215px;opacity: 0; transform: scale(0);}
+		100%{ top: 30px;left: 230px;opacity: 1; transform: scale(1);}
+}
+	@keyframes btnsrmove{
+		0%{ top: 0px;left: 215px;opacity: 0; transform: scale(0);}
+		100%{ top: 30px;left: 230px;opacity: 1; transform: scale(1);} 
+	}
+.back-r-movex{position: absolute; opacity: 1; top:30px; left: 230px; width: 130px; height: 131px; background: url(../images/back.png) no-repeat;}	
+.back-r-move:hover,.back-r-movex:hover{ top: 30px;left: 230px;opacity: 1; background: url(../images/back_do.png) no-repeat ; 
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	-o-transform: scale(0.9);
+	transform: scale(0.9);
+}
+/*认知内容 结束*/
+
+/*拼图*/
+canvas {border: 0px;margin:0;padding:0;};
+audio{display: none;}
+

@@ -1,0 +1,26 @@
+/*云朵*/
+.cloud { position: absolute; z-index: 2; top: -56%; left: -100%; width: 8392px; height: 768px; background: url(../images/cloud.png) no-repeat; -webkit-animation: cloudp 600s ease-out infinite; -o-animation: cloudp 600s ease-out infinite; animation: cloudp 600s ease-out infinite; }
+@-webkit-keyframes cloudp {
+	0% { top: 0%; left: 0%; }
+	.1% { top: -70%; left: 0%; }
+	.12% { top: -56%; left: 0%; }
+	100% { top: -56%; left: -100%; }
+}
+@-o-keyframes cloudp {
+	0% { top: 0%; left: 0%; }
+	.1% { top: -70%; left: 0%; }
+	.12% { top: -56%; left: 0%; }
+	100% { top: -56%; left: -100%; }
+}
+@-moz-keyframes cloudp {
+	0% { top: 0%; left: 0%; }
+	.1% { top: -70%; left: 0%; }
+	.12% { top: -56%; left: 0%; }
+	100% { top: -56%; left: -100%; }
+}
+@keyframes cloudp {
+	0% { top: 0%; left: 0%; }
+	.1% { top: -70%; left: 0%; }
+	.12% { top: -56%; left: 0%; }
+	100% { top: -56%; left: -100%; }
+}
